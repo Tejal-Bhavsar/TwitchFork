@@ -1,0 +1,26 @@
+{
+  "name": "twitchfork",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Live creator content lineage and attribution demo",
+  "scripts": {
+    "dev": "tsx watch server.ts",
+    "start": "tsx server.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "openai": "^4.77.0",
+    "tmi.js": "^1.8.5",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.2",
+    "@types/tmi.js": "^1.8.6",
+    "@types/ws": "^8.5.13",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

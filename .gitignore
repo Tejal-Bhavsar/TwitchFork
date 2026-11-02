@@ -1,0 +1,10 @@
+node_modules/
+dist/
+
+# Local credentials and environment overrides. Keep the safe template in Git.
+.env*
+!.env.example
+
+# Local keys/certificates and OS/editor files
+*.pem
+.DS_Store

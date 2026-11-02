@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0e0e10"><title>TwitchFork — Creator Lineage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#"><span class="brand-mark">TF</span><span>TwitchFork</span></a>
+      <div class="top-meta"><span class="live-dot"></span><span id="connection-label">CONNECTING</span><span class="top-divider"></span><span class="source-chip">PROFILES <b id="source-label">SAMPLE DATA</b></span></div>
+      <button id="admin-toggle" class="admin-trigger" aria-expanded="false">Demo controls <span aria-hidden="true">⌄</span></button>
+    </header>
+    <main class="layout">
+      <section class="graph-column">
+        <div class="section-heading"><div><p class="eyebrow">TWITCHFORK / CREATOR CREDIT</p><h1>Who inspired this content?</h1><p class="section-description">Track the original creator as a clip gets remixed, reacted to, or co-streamed. Then show the credit they could receive.</p></div><div class="graph-count"><b id="node-count">00</b><span>CREATORS<br>IN EXAMPLE</span></div></div>
+        <div class="walkthrough" aria-label="Example creator journey"><div><span>1 · ORIGINAL CLIP</span><b>Original creator</b></div><i>→</i><div><span>2 · REMIXES IT</span><b>Clip remixer</b></div><i>→</i><div><span>3 · CO-STREAMS IT</span><b>Co-streamer</b></div><strong>Arrow points to who reused it.<br>Percent is suggested credit to the source.</strong></div>
+        <div class="graph-toolbar"><div class="legend"><span><i class="legend-node"></i> CREATOR</span><span><i class="legend-line"></i> ORIGINAL → REUSE</span><span><i class="legend-line raid-key"></i> RAID</span><span><i class="legend-line remix-key"></i> CLIP REUSE</span><span><i class="legend-line stream-key"></i> CO-STREAM</span></div><span class="graph-hint">LINKS AND CREDIT ARE EXAMPLES</span></div>
+        <div id="graph-stage" class="graph-stage"><svg id="graph-svg" role="img" aria-label="Interactive creator lineage graph"></svg><div id="empty-state" class="empty-state"><span class="empty-icon">⌁</span><b>No lineage yet</b><p>Add an example relationship from Demo controls to see how attribution works.</p><button class="seed-button" data-seed="raid">ADD EXAMPLE LINK</button></div><div class="stage-watermark">LINKS AND CREDIT VALUES ARE EXAMPLES</div></div>
+        <div class="graph-footer"><span><i class="pulse"></i> GRAPH UPDATES</span><span id="last-updated">WAITING FOR UPDATES</span><span>PROTOTYPE</span></div>
+      </section>
+      <aside class="lineage-panel"><div class="panel-header"><div><p class="eyebrow">CREATOR DETAILS</p><h2>Lineage</h2></div><span class="panel-icon">⌖</span></div>
+        <div id="inspector-empty" class="inspector-empty"><div class="target-icon">◎</div><b>Select a creator</b><p>Click a node to see its source creators, derivatives, and proposed credit.</p></div>
+        <div id="inspector-content" class="inspector-content" hidden>
+          <div class="selected-creator"><div id="selected-avatar" class="avatar">?</div><div class="profile-copy"><span class="eyebrow">SELECTED CREATOR</span><h3 id="selected-name">—</h3><div class="profile-badges"><span id="follower-badge" class="follower-badge">— FOLLOWERS</span><span id="live-badge" class="live-badge">● LIVE</span></div><span id="selected-stats" class="creator-stats">—</span></div></div>
+          <div id="stream-title" class="stream-title">—</div>
+          <div id="stream-preview" class="stream-preview"><div class="preview-top"><span><i class="preview-live-dot"></i> <span id="preview-label">SAMPLE PREVIEW</span></span><span id="preview-viewers">—</span></div><div class="preview-screen"><img id="preview-image" alt="Current Twitch stream frame" hidden><div class="scanlines"></div><div class="preview-signal">▶</div><div class="preview-game">STREAM / <b id="preview-category">—</b></div><div class="preview-name" id="preview-name">—</div><div class="preview-caption" id="preview-caption">Sample stream preview</div><div class="preview-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
+          <div class="metric-grid"><div class="metric"><span>INSPIRED BY</span><b id="upstream-count">00</b></div><div class="metric"><span>CONTENT USED BY</span><b id="downstream-count">00</b></div></div>
+          <div class="lineage-breakdown"><div><span>INSPIRED BY</span><b id="upstream-list">—</b></div><div><span>CONTENT USED BY</span><b id="downstream-list">—</b></div></div>
+          <div class="royalty-card"><div class="royalty-top"><span>SUGGESTED CREDIT (EXAMPLE)</span><span>NOT A PAYMENT</span></div><div class="credit-row"><span>Credit this creator could receive</span><b id="credit-earned">$0.00</b></div><div class="credit-row"><span>Credit this creator suggests for sources</span><b id="credit-attributed">$0.00</b></div><p id="royalty-detail">Math: $1,240 example pool × each link's percentage.</p><small>This is a proposal only. TwitchFork does not move money.</small></div>
+          <div class="cards-heading"><span>CONTENT LINKS</span><span class="card-count" id="card-count">00</span></div><div id="attribution-cards" class="attribution-cards"></div>
+        </div>
+        <div class="panel-note"><span>ⓘ</span><p>Attribution splits are demo values for the hackathon prototype and do not represent Twitch payouts.</p></div>
+      </aside>
+    </main>
+    <div id="modal-backdrop" class="modal-backdrop"></div><aside id="admin-panel" class="admin-panel" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="admin-title"><div class="admin-head"><div><p class="eyebrow">LOCAL EXAMPLES</p><h2 id="admin-title">Demo controls</h2></div><button id="admin-close" aria-label="Close demo controls">×</button></div><p class="admin-copy">These add sample relationships so you can show the idea. They do not start a Twitch raid or send a chat message.</p><div class="admin-actions"><button data-seed="raid"><span class="action-icon">↗</span><span><b>Add an example raid</b><small>Adds one sample creator and link</small></span><i>→</i></button><button data-seed="reaction"><span class="action-icon reaction">◉</span><span><b>Add an example clip remix</b><small>Shows how source credit is suggested</small></span><i>→</i></button><button data-seed="chat"><span class="action-icon revenue">⌁</span><span><b>Show an example !fork</b><small>Adds a sample chat attribution link</small></span><i>→</i></button></div><div class="admin-log"><div><span>LINKS IN GRAPH</span><span id="event-count">00 LINKS</span></div><ol id="event-log"><li class="log-placeholder">No extra examples yet.</li></ol></div><div class="admin-foot"><span>SAMPLE RELATIONSHIPS</span><span>ESC TO CLOSE</span></div></aside>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </div>
+  <script src="/app.js" defer></script>
+</body>
+</html>
